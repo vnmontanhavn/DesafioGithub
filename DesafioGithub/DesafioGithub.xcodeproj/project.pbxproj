@@ -16,6 +16,8 @@
 		302D7A7E2A0C21AC00C726F4 /* DesafioGithubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7A7D2A0C21AC00C726F4 /* DesafioGithubUITests.swift */; };
 		302D7A802A0C21AC00C726F4 /* DesafioGithubUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7A7F2A0C21AC00C726F4 /* DesafioGithubUITestsLaunchTests.swift */; };
 		302D7A8E2A0C261600C726F4 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7A8D2A0C261600C726F4 /* ErrorView.swift */; };
+		302D7A922A0D676200C726F4 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 302D7A912A0D676200C726F4 /* users.json */; };
+		302D7A942A0D694900C726F4 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7A932A0D694900C726F4 /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		302D7A7D2A0C21AC00C726F4 /* DesafioGithubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafioGithubUITests.swift; sourceTree = "<group>"; };
 		302D7A7F2A0C21AC00C726F4 /* DesafioGithubUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafioGithubUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		302D7A8D2A0C261600C726F4 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		302D7A912A0D676200C726F4 /* users.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
+		302D7A932A0D694900C726F4 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,8 +143,18 @@
 		302D7A8F2A0D644A00C726F4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				302D7A902A0D673500C726F4 /* Jsons */,
+				302D7A932A0D694900C726F4 /* UserModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		302D7A902A0D673500C726F4 /* Jsons */ = {
+			isa = PBXGroup;
+			children = (
+				302D7A912A0D676200C726F4 /* users.json */,
+			);
+			path = Jsons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,6 +261,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				302D7A922A0D676200C726F4 /* users.json in Resources */,
 				302D7A692A0C21AC00C726F4 /* LaunchScreen.storyboard in Resources */,
 				302D7A662A0C21AC00C726F4 /* Assets.xcassets in Resources */,
 			);
@@ -276,6 +291,7 @@
 				302D7A612A0C21AA00C726F4 /* ViewController.swift in Sources */,
 				302D7A5D2A0C21AA00C726F4 /* AppDelegate.swift in Sources */,
 				302D7A5F2A0C21AA00C726F4 /* SceneDelegate.swift in Sources */,
+				302D7A942A0D694900C726F4 /* UserModel.swift in Sources */,
 				302D7A8E2A0C261600C726F4 /* ErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
