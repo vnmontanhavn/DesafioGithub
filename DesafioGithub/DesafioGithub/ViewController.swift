@@ -19,10 +19,12 @@ class ViewController: UIViewController {
         
         UserListCaller().getList { response in
             print(response)
+        } fail: { errorString in
+            let errorView = ErrorView()
+            errorView.setup(errorMessage: errorString)
+            self.present(errorView, animated: true)
         }
-        let errorView = ErrorView()
-        errorView.setup(errorMessage: "teste de erro")
-        self.present(errorView, animated: true)
+        
         
     }
 }
