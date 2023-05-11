@@ -18,6 +18,8 @@
 		302D7A8E2A0C261600C726F4 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7A8D2A0C261600C726F4 /* ErrorView.swift */; };
 		302D7A922A0D676200C726F4 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 302D7A912A0D676200C726F4 /* users.json */; };
 		302D7A942A0D694900C726F4 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7A932A0D694900C726F4 /* UserModel.swift */; };
+		302D7A972A0D6F0300C726F4 /* UserListCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7A962A0D6F0300C726F4 /* UserListCaller.swift */; };
+		CB67AD9438B375E4FBB9CA01 /* libPods-DesafioGithub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56EF7357AAF1E3F20EC59CB2 /* libPods-DesafioGithub.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05F1320542B25E1CC41C1564 /* Pods-DesafioGithub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioGithub.release.xcconfig"; path = "Target Support Files/Pods-DesafioGithub/Pods-DesafioGithub.release.xcconfig"; sourceTree = "<group>"; };
 		302D7A592A0C21AA00C726F4 /* DesafioGithub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesafioGithub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		302D7A5C2A0C21AA00C726F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		302D7A5E2A0C21AA00C726F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +56,9 @@
 		302D7A8D2A0C261600C726F4 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		302D7A912A0D676200C726F4 /* users.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		302D7A932A0D694900C726F4 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		302D7A962A0D6F0300C726F4 /* UserListCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCaller.swift; sourceTree = "<group>"; };
+		56EF7357AAF1E3F20EC59CB2 /* libPods-DesafioGithub.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DesafioGithub.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		579D8555F3373B8135C9FF59 /* Pods-DesafioGithub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioGithub.debug.xcconfig"; path = "Target Support Files/Pods-DesafioGithub/Pods-DesafioGithub.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB67AD9438B375E4FBB9CA01 /* libPods-DesafioGithub.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +94,8 @@
 				302D7A722A0C21AC00C726F4 /* DesafioGithubTests */,
 				302D7A7C2A0C21AC00C726F4 /* DesafioGithubUITests */,
 				302D7A5A2A0C21AA00C726F4 /* Products */,
+				A8647F34E792E7AB8E175877 /* Pods */,
+				81B0622F13A8F4F6BD75C7CE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +112,7 @@
 		302D7A5B2A0C21AA00C726F4 /* DesafioGithub */ = {
 			isa = PBXGroup;
 			children = (
+				302D7A952A0D6ED500C726F4 /* Callers */,
 				302D7A8F2A0D644A00C726F4 /* Models */,
 				302D7A8C2A0C25CB00C726F4 /* Views */,
 				302D7A5C2A0C21AA00C726F4 /* AppDelegate.swift */,
@@ -157,6 +167,32 @@
 			path = Jsons;
 			sourceTree = "<group>";
 		};
+		302D7A952A0D6ED500C726F4 /* Callers */ = {
+			isa = PBXGroup;
+			children = (
+				302D7A962A0D6F0300C726F4 /* UserListCaller.swift */,
+			);
+			path = Callers;
+			sourceTree = "<group>";
+		};
+		81B0622F13A8F4F6BD75C7CE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				56EF7357AAF1E3F20EC59CB2 /* libPods-DesafioGithub.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A8647F34E792E7AB8E175877 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				579D8555F3373B8135C9FF59 /* Pods-DesafioGithub.debug.xcconfig */,
+				05F1320542B25E1CC41C1564 /* Pods-DesafioGithub.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,6 +200,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 302D7A832A0C21AC00C726F4 /* Build configuration list for PBXNativeTarget "DesafioGithub" */;
 			buildPhases = (
+				9A0ECC1AC9FE72FC15BA1CE2 /* [CP] Check Pods Manifest.lock */,
 				302D7A552A0C21AA00C726F4 /* Sources */,
 				302D7A562A0C21AA00C726F4 /* Frameworks */,
 				302D7A572A0C21AA00C726F4 /* Resources */,
@@ -283,6 +320,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9A0ECC1AC9FE72FC15BA1CE2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DesafioGithub-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		302D7A552A0C21AA00C726F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -293,6 +355,7 @@
 				302D7A5F2A0C21AA00C726F4 /* SceneDelegate.swift in Sources */,
 				302D7A942A0D694900C726F4 /* UserModel.swift in Sources */,
 				302D7A8E2A0C261600C726F4 /* ErrorView.swift in Sources */,
+				302D7A972A0D6F0300C726F4 /* UserListCaller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +519,7 @@
 		};
 		302D7A842A0C21AC00C726F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 579D8555F3373B8135C9FF59 /* Pods-DesafioGithub.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -486,6 +550,7 @@
 		};
 		302D7A852A0C21AC00C726F4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05F1320542B25E1CC41C1564 /* Pods-DesafioGithub.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

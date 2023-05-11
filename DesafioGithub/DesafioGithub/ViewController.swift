@@ -16,9 +16,14 @@ class ViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        UserListCaller().getList { response in
+            print(response)
+        }
         let errorView = ErrorView()
         errorView.setup(errorMessage: "teste de erro")
         self.present(errorView, animated: true)
+        
     }
 }
 
