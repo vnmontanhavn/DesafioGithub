@@ -24,8 +24,6 @@ class ViewController: UIViewController {
             errorView.setup(errorMessage: errorString)
             self.present(errorView, animated: true)
         }
-        
-        
     }
 }
 

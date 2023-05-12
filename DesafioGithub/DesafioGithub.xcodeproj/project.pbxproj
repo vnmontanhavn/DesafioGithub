@@ -19,6 +19,9 @@
 		302D7A922A0D676200C726F4 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 302D7A912A0D676200C726F4 /* users.json */; };
 		302D7A942A0D694900C726F4 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7A932A0D694900C726F4 /* UserModel.swift */; };
 		302D7A972A0D6F0300C726F4 /* UserListCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7A962A0D6F0300C726F4 /* UserListCaller.swift */; };
+		302D7A9A2A0DEB7100C726F4 /* UserListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7A992A0DEB7100C726F4 /* UserListItemViewModel.swift */; };
+		302D7A9E2A0DEC3300C726F4 /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7A9D2A0DEC3300C726F4 /* UserListCell.swift */; };
+		302D7AA02A0DF04D00C726F4 /* CellsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7A9F2A0DF04D00C726F4 /* CellsProtocols.swift */; };
 		CB67AD9438B375E4FBB9CA01 /* libPods-DesafioGithub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56EF7357AAF1E3F20EC59CB2 /* libPods-DesafioGithub.a */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +60,9 @@
 		302D7A912A0D676200C726F4 /* users.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		302D7A932A0D694900C726F4 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		302D7A962A0D6F0300C726F4 /* UserListCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCaller.swift; sourceTree = "<group>"; };
+		302D7A992A0DEB7100C726F4 /* UserListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListItemViewModel.swift; sourceTree = "<group>"; };
+		302D7A9D2A0DEC3300C726F4 /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
+		302D7A9F2A0DF04D00C726F4 /* CellsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellsProtocols.swift; sourceTree = "<group>"; };
 		56EF7357AAF1E3F20EC59CB2 /* libPods-DesafioGithub.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DesafioGithub.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		579D8555F3373B8135C9FF59 /* Pods-DesafioGithub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioGithub.debug.xcconfig"; path = "Target Support Files/Pods-DesafioGithub/Pods-DesafioGithub.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +118,7 @@
 		302D7A5B2A0C21AA00C726F4 /* DesafioGithub */ = {
 			isa = PBXGroup;
 			children = (
+				302D7A982A0DEB2700C726F4 /* ViewModels */,
 				302D7A952A0D6ED500C726F4 /* Callers */,
 				302D7A8F2A0D644A00C726F4 /* Models */,
 				302D7A8C2A0C25CB00C726F4 /* Views */,
@@ -145,6 +152,7 @@
 		302D7A8C2A0C25CB00C726F4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				302D7A9B2A0DEBD700C726F4 /* UserList */,
 				302D7A8D2A0C261600C726F4 /* ErrorView.swift */,
 			);
 			path = Views;
@@ -175,6 +183,31 @@
 			path = Callers;
 			sourceTree = "<group>";
 		};
+		302D7A982A0DEB2700C726F4 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				302D7A992A0DEB7100C726F4 /* UserListItemViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		302D7A9B2A0DEBD700C726F4 /* UserList */ = {
+			isa = PBXGroup;
+			children = (
+				302D7A9C2A0DEC1200C726F4 /* Cell */,
+			);
+			path = UserList;
+			sourceTree = "<group>";
+		};
+		302D7A9C2A0DEC1200C726F4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				302D7A9D2A0DEC3300C726F4 /* UserListCell.swift */,
+				302D7A9F2A0DF04D00C726F4 /* CellsProtocols.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		81B0622F13A8F4F6BD75C7CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,7 +222,6 @@
 				579D8555F3373B8135C9FF59 /* Pods-DesafioGithub.debug.xcconfig */,
 				05F1320542B25E1CC41C1564 /* Pods-DesafioGithub.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -350,12 +382,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				302D7A9E2A0DEC3300C726F4 /* UserListCell.swift in Sources */,
 				302D7A612A0C21AA00C726F4 /* ViewController.swift in Sources */,
 				302D7A5D2A0C21AA00C726F4 /* AppDelegate.swift in Sources */,
 				302D7A5F2A0C21AA00C726F4 /* SceneDelegate.swift in Sources */,
 				302D7A942A0D694900C726F4 /* UserModel.swift in Sources */,
 				302D7A8E2A0C261600C726F4 /* ErrorView.swift in Sources */,
+				302D7A9A2A0DEB7100C726F4 /* UserListItemViewModel.swift in Sources */,
 				302D7A972A0D6F0300C726F4 /* UserListCaller.swift in Sources */,
+				302D7AA02A0DF04D00C726F4 /* CellsProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

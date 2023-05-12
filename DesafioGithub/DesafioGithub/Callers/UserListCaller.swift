@@ -17,12 +17,10 @@ class UserListCaller {
                     let myResponse = try decoder.decode([UserModel].self, from: value)
                     completion(myResponse)
                 } else {
-                    print(response.error?.localizedDescription ?? "Um erro aconteceu")
                     fail(response.error?.localizedDescription ?? "Um erro aconteceu")
                 }
             }
             catch {
-                print("JSONSerialization error:", error.localizedDescription)
                 fail(error.localizedDescription)
             }
         }
