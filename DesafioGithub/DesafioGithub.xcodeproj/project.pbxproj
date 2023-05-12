@@ -22,7 +22,7 @@
 		302D7A9A2A0DEB7100C726F4 /* UserListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7A992A0DEB7100C726F4 /* UserListItemViewModel.swift */; };
 		302D7A9E2A0DEC3300C726F4 /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7A9D2A0DEC3300C726F4 /* UserListCell.swift */; };
 		302D7AA02A0DF04D00C726F4 /* CellsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7A9F2A0DF04D00C726F4 /* CellsProtocols.swift */; };
-		CB67AD9438B375E4FBB9CA01 /* libPods-DesafioGithub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56EF7357AAF1E3F20EC59CB2 /* libPods-DesafioGithub.a */; };
+		9372D8E9E2FEF6ABEBA02A57 /* libPods-DesafioGithub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA85D7CD5FE9FDEAB3B3598 /* libPods-DesafioGithub.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +63,7 @@
 		302D7A992A0DEB7100C726F4 /* UserListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListItemViewModel.swift; sourceTree = "<group>"; };
 		302D7A9D2A0DEC3300C726F4 /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
 		302D7A9F2A0DF04D00C726F4 /* CellsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellsProtocols.swift; sourceTree = "<group>"; };
-		56EF7357AAF1E3F20EC59CB2 /* libPods-DesafioGithub.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DesafioGithub.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FA85D7CD5FE9FDEAB3B3598 /* libPods-DesafioGithub.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DesafioGithub.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		579D8555F3373B8135C9FF59 /* Pods-DesafioGithub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioGithub.debug.xcconfig"; path = "Target Support Files/Pods-DesafioGithub/Pods-DesafioGithub.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,7 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB67AD9438B375E4FBB9CA01 /* libPods-DesafioGithub.a in Frameworks */,
+				9372D8E9E2FEF6ABEBA02A57 /* libPods-DesafioGithub.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,7 +211,7 @@
 		81B0622F13A8F4F6BD75C7CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				56EF7357AAF1E3F20EC59CB2 /* libPods-DesafioGithub.a */,
+				4FA85D7CD5FE9FDEAB3B3598 /* libPods-DesafioGithub.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
