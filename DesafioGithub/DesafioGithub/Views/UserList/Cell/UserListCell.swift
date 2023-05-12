@@ -27,7 +27,8 @@ class UserListCell: UITableViewCell {
     
     func startCell(model: UserListItemViewModel) {
         clearSetup()
-        
+        self.nameLabel.text = model.name
+        self.gitLabel.text = model.gitURL
     }
     
     func setupConstraints() {
