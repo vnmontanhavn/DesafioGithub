@@ -103,7 +103,9 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let newView = UIViewController()
+        let mock = UserDetailViewModel(userName: "Teste 1", realName: "Teste2", imageURL: "", gitURL: "", blogURL: "", twitterUsername: "", followers: 0, following: 1, repositoresURL: "")
+        let newView = DetailViewController()
+        newView.setupController(model: mock)
         self.navigationController?.pushViewController(newView, animated: true)
     }
     

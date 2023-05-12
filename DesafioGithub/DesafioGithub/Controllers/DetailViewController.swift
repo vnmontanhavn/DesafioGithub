@@ -11,29 +11,49 @@ import SDWebImage
 
 class DetailViewController: UIViewController {
     
-    private var avatarImage = UIImageView(frame: .zero)
-    private var userNameLabel = UILabel()
-    private var realNameLabel = UILabel()
-    private var userGitLink = UIButton()
-    private var userBlogLink = UIButton()
-    private var userTwitterLink = UIButton()
-    private let repoTableView = UITableView()
+    private let tableView = UITableView()
     private var model: UserDetailViewModel? = nil
     ///Métodos
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = .blue
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.view.addSubview(tableView)
+        self.setupConstraints()
+    }
+    
     func setupController(model: UserDetailViewModel){
         self.model = model
-        let url = URL(string: model.imageURL)
-        avatarImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder"))
-        userNameLabel.text = model.userName
-        realNameLabel.text = model.realName
-        userGitLink.titleLabel?.text = "Git"
-        userGitLink.isHidden = model.gitURL.count > 0 ? false : true
-        userBlogLink.titleLabel?.text = "Blog"
-        userBlogLink.isHidden = model.blogURL.count > 0 ? false : true
-        userTwitterLink.titleLabel?.text = "Twitter"
-        userTwitterLink.isHidden = model.twitterUsername.count > 0 ? false : true
+        self.title = model.userName
+    }
+    
+    func setupConstraints() {
+        self.tableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            self.tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+            self.tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor)
+        ])
         
     }
+    
+}
+
+extension DetailViewController: UITableViewDelegate {
+    
+}
+
+extension DetailViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
     
 }
