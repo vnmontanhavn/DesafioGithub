@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ErrorView: UIViewController {
+class ErrorViewController: UIViewController {
     private var label: UILabel = UILabel()
     private let icon = UIImageView(image: UIImage(named: "erro"))
     

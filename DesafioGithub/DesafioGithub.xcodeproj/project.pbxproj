@@ -15,13 +15,15 @@
 		302D7A742A0C21AC00C726F4 /* DesafioGithubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7A732A0C21AC00C726F4 /* DesafioGithubTests.swift */; };
 		302D7A7E2A0C21AC00C726F4 /* DesafioGithubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7A7D2A0C21AC00C726F4 /* DesafioGithubUITests.swift */; };
 		302D7A802A0C21AC00C726F4 /* DesafioGithubUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7A7F2A0C21AC00C726F4 /* DesafioGithubUITestsLaunchTests.swift */; };
-		302D7A8E2A0C261600C726F4 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7A8D2A0C261600C726F4 /* ErrorView.swift */; };
+		302D7A8E2A0C261600C726F4 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7A8D2A0C261600C726F4 /* ErrorViewController.swift */; };
 		302D7A922A0D676200C726F4 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 302D7A912A0D676200C726F4 /* users.json */; };
 		302D7A942A0D694900C726F4 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7A932A0D694900C726F4 /* UserModel.swift */; };
 		302D7A972A0D6F0300C726F4 /* UserListCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7A962A0D6F0300C726F4 /* UserListCaller.swift */; };
 		302D7A9A2A0DEB7100C726F4 /* UserListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7A992A0DEB7100C726F4 /* UserListItemViewModel.swift */; };
 		302D7A9E2A0DEC3300C726F4 /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7A9D2A0DEC3300C726F4 /* UserListCell.swift */; };
 		302D7AA02A0DF04D00C726F4 /* CellsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7A9F2A0DF04D00C726F4 /* CellsProtocols.swift */; };
+		302D7AA22A0EC21F00C726F4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7AA12A0EC21F00C726F4 /* DetailViewController.swift */; };
+		302D7AA52A0EC50A00C726F4 /* UserDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7AA42A0EC50A00C726F4 /* UserDetailViewModel.swift */; };
 		9372D8E9E2FEF6ABEBA02A57 /* libPods-DesafioGithub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA85D7CD5FE9FDEAB3B3598 /* libPods-DesafioGithub.a */; };
 /* End PBXBuildFile section */
 
@@ -56,13 +58,15 @@
 		302D7A792A0C21AC00C726F4 /* DesafioGithubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DesafioGithubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		302D7A7D2A0C21AC00C726F4 /* DesafioGithubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafioGithubUITests.swift; sourceTree = "<group>"; };
 		302D7A7F2A0C21AC00C726F4 /* DesafioGithubUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafioGithubUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		302D7A8D2A0C261600C726F4 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		302D7A8D2A0C261600C726F4 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		302D7A912A0D676200C726F4 /* users.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		302D7A932A0D694900C726F4 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		302D7A962A0D6F0300C726F4 /* UserListCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCaller.swift; sourceTree = "<group>"; };
 		302D7A992A0DEB7100C726F4 /* UserListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListItemViewModel.swift; sourceTree = "<group>"; };
 		302D7A9D2A0DEC3300C726F4 /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
 		302D7A9F2A0DF04D00C726F4 /* CellsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellsProtocols.swift; sourceTree = "<group>"; };
+		302D7AA12A0EC21F00C726F4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		302D7AA42A0EC50A00C726F4 /* UserDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewModel.swift; sourceTree = "<group>"; };
 		4FA85D7CD5FE9FDEAB3B3598 /* libPods-DesafioGithub.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DesafioGithub.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		579D8555F3373B8135C9FF59 /* Pods-DesafioGithub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioGithub.debug.xcconfig"; path = "Target Support Files/Pods-DesafioGithub/Pods-DesafioGithub.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,13 +122,13 @@
 		302D7A5B2A0C21AA00C726F4 /* DesafioGithub */ = {
 			isa = PBXGroup;
 			children = (
+				302D7AA32A0EC22800C726F4 /* Controllers */,
 				302D7A982A0DEB2700C726F4 /* ViewModels */,
 				302D7A952A0D6ED500C726F4 /* Callers */,
 				302D7A8F2A0D644A00C726F4 /* Models */,
 				302D7A8C2A0C25CB00C726F4 /* Views */,
 				302D7A5C2A0C21AA00C726F4 /* AppDelegate.swift */,
 				302D7A5E2A0C21AA00C726F4 /* SceneDelegate.swift */,
-				302D7A602A0C21AA00C726F4 /* ViewController.swift */,
 				302D7A652A0C21AC00C726F4 /* Assets.xcassets */,
 				302D7A672A0C21AC00C726F4 /* LaunchScreen.storyboard */,
 				302D7A6A2A0C21AC00C726F4 /* Info.plist */,
@@ -152,8 +156,8 @@
 		302D7A8C2A0C25CB00C726F4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				302D7A9F2A0DF04D00C726F4 /* CellsProtocols.swift */,
 				302D7A9B2A0DEBD700C726F4 /* UserList */,
-				302D7A8D2A0C261600C726F4 /* ErrorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -187,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				302D7A992A0DEB7100C726F4 /* UserListItemViewModel.swift */,
+				302D7AA42A0EC50A00C726F4 /* UserDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -203,9 +208,18 @@
 			isa = PBXGroup;
 			children = (
 				302D7A9D2A0DEC3300C726F4 /* UserListCell.swift */,
-				302D7A9F2A0DF04D00C726F4 /* CellsProtocols.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		302D7AA32A0EC22800C726F4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				302D7AA12A0EC21F00C726F4 /* DetailViewController.swift */,
+				302D7A8D2A0C261600C726F4 /* ErrorViewController.swift */,
+				302D7A602A0C21AA00C726F4 /* ViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		81B0622F13A8F4F6BD75C7CE /* Frameworks */ = {
@@ -385,10 +399,12 @@
 				302D7A9E2A0DEC3300C726F4 /* UserListCell.swift in Sources */,
 				302D7A612A0C21AA00C726F4 /* ViewController.swift in Sources */,
 				302D7A5D2A0C21AA00C726F4 /* AppDelegate.swift in Sources */,
+				302D7AA52A0EC50A00C726F4 /* UserDetailViewModel.swift in Sources */,
 				302D7A5F2A0C21AA00C726F4 /* SceneDelegate.swift in Sources */,
 				302D7A942A0D694900C726F4 /* UserModel.swift in Sources */,
-				302D7A8E2A0C261600C726F4 /* ErrorView.swift in Sources */,
+				302D7A8E2A0C261600C726F4 /* ErrorViewController.swift in Sources */,
 				302D7A9A2A0DEB7100C726F4 /* UserListItemViewModel.swift in Sources */,
+				302D7AA22A0EC21F00C726F4 /* DetailViewController.swift in Sources */,
 				302D7A972A0D6F0300C726F4 /* UserListCaller.swift in Sources */,
 				302D7AA02A0DF04D00C726F4 /* CellsProtocols.swift in Sources */,
 			);

@@ -31,7 +31,7 @@ class ViewController: UIViewController {
             self.tableView.reloadData()
             self.stopIndicatorAnimation()
         } fail: { errorString in
-            let errorView = ErrorView()
+            let errorView = ErrorViewController()
             errorView.setup(errorMessage: errorString)
             self.present(errorView, animated: true)
             self.stopIndicatorAnimation()
