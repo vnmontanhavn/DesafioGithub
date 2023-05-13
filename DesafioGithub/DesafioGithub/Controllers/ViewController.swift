@@ -11,13 +11,16 @@ class ViewController: UIViewController {
 
     var tableView = UITableView()
     var users: [UserModel] = []
+    var usersFiltred: [UserModel] = []
     var indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
+    var searchBar = UISearchBar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .red
         title = "Usuarios"
         setupTableView()
+        setupSearchBar()
         setupActivityIndicator()
         setupConstraints()
     }
@@ -25,13 +28,19 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         startIndicatorAnimation()
+        self.searchBar.text = ""
         UserListCaller().getList { response in
             self.users = response
+            self.usersFiltred = self.users
             self.tableView.reloadData()
             self.stopIndicatorAnimation()
         } fail: { errorString in
             self.showError(message: errorString)
         }
+    }
+    
+    func setupSearchBar() {
+        self.searchBar.delegate = self
     }
     
     func setupTableView() {
@@ -83,6 +92,24 @@ extension ViewController: UITableViewDelegate {
 }
 
 extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
+        headerView.addSubview(self.searchBar)
+        self.searchBar.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.searchBar.topAnchor.constraint(equalTo: headerView.topAnchor),
+            self.searchBar.bottomAnchor.constraint(equalTo: headerView.bottomAnchor),
+            self.searchBar.leftAnchor.constraint(equalTo: headerView.leftAnchor),
+            self.searchBar.rightAnchor.constraint(equalTo: headerView.rightAnchor)
+        ])
+        
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+            return 50
+        }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
     }
@@ -91,10 +118,10 @@ extension ViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: UserListCell().getIdentifier()) as? UserListCell else {
             return UITableViewCell()
         }
-        if users.count <= indexPath.row {
+        if usersFiltred.count <= indexPath.row {
             return UITableViewCell()
         }
-        let  model = users[indexPath.row]
+        let  model = usersFiltred[indexPath.row]
         let viewModel = UserListItemViewModel(name: model.login, imageURL: model.avatarURL, gitURL: model.htmlURL)
         cell.startCell(model: viewModel)
         
@@ -106,11 +133,11 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if users.count <= indexPath.row {
+        if usersFiltred.count <= indexPath.row {
             return
         }
         startIndicatorAnimation()
-        let userURL = users[indexPath.row].url
+        let userURL = usersFiltred[indexPath.row].url
         UserDetailCaller().getDetail(userURL: userURL) { response in
             self.stopIndicatorAnimation()
             let detail = UserDetailViewModel(userName: response.login, realName: response.name, imageURL: response.avatarURL, gitURL: response.url, blogURL: response.blog, twitterUsername: response.twitter, followers: response.followers, following: response.following, repositoresURL: response.repos)
@@ -121,5 +148,13 @@ extension ViewController: UITableViewDataSource {
             self.showError(message: errorString)
         }
     }
-    
+}
+
+extension ViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        usersFiltred = searchText.isEmpty ? users : users.filter { (item: UserModel) -> Bool in
+            return item.login.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+                }
+        self.tableView.reloadData()
+    }
 }
