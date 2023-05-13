@@ -31,10 +31,7 @@ class ViewController: UIViewController {
             self.tableView.reloadData()
             self.stopIndicatorAnimation()
         } fail: { errorString in
-            let errorView = ErrorViewController()
-            errorView.setup(errorMessage: errorString)
-            self.present(errorView, animated: true)
-            self.stopIndicatorAnimation()
+            self.showError(message: errorString)
         }
     }
     
@@ -71,6 +68,13 @@ class ViewController: UIViewController {
             self.indicator.leftAnchor.constraint(equalTo: self.tableView.centerXAnchor),
             self.indicator.centerYAnchor.constraint(equalTo: self.tableView.centerYAnchor)
             ])
+    }
+    
+    func showError(message: String) {
+        let errorView = ErrorViewController()
+        errorView.setup(errorMessage: message)
+        self.present(errorView, animated: true)
+        self.stopIndicatorAnimation()
     }
     
 }
@@ -116,10 +120,7 @@ extension ViewController: UITableViewDataSource {
             detailView.setupController(model: detail)
             self.navigationController?.pushViewController(detailView, animated: true)
         } fail: { errorString in
-            let errorView = ErrorViewController()
-            errorView.setup(errorMessage: errorString)
-            self.present(errorView, animated: true)
-            self.stopIndicatorAnimation()
+            self.showError(message: errorString)
         }
     }
     

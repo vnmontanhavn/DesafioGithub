@@ -13,6 +13,8 @@ class DetailViewController: UIViewController {
     
     private let tableView = UITableView()
     private var model: UserDetailViewModel? = nil
+    private var indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
+    private var repos: [RepositoryModel] = []
     ///Métodos
     
     override func viewDidLoad() {
@@ -21,13 +23,20 @@ class DetailViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.view.addSubview(tableView)
+        self.view.addSubview(indicator)
+        indicator.hidesWhenStopped = true
         self.setupConstraints()
         self.setupTableview()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        callRepo()
     }
     
     private func setupTableview() {
         self.tableView.register(DetailImageCell.self, forCellReuseIdentifier: DetailImageCell().getIdentifier())
         self.tableView.register(DetailInfoCell.self, forCellReuseIdentifier: DetailInfoCell().getIdentifier())
+        self.tableView.register(DetailRepositoryCell.self, forCellReuseIdentifier: DetailRepositoryCell().getIdentifier())
     }
     
     func setupController(model: UserDetailViewModel){
@@ -37,13 +46,48 @@ class DetailViewController: UIViewController {
     
     private func setupConstraints() {
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
+        self.indicator.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor),
             self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             self.tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
-            self.tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor)
+            self.tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
+            self.indicator.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            self.indicator.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -50)
         ])
         
+    }
+    
+    func callRepo() {
+        guard let model = self.model else {
+            return
+        }
+        startIndicatorAnimation()
+        if let url = URL(string: model.repositoresURL) {
+            RepositoryCaller().getList(url: url) { response in
+                print(response)
+                self.repos = response
+                self.tableView.reloadData()
+                self.stopIndicatorAnimation()
+            } fail: { errorMessage in
+                self.showError(message: errorMessage)
+                self.stopIndicatorAnimation()
+            }
+        }
+    }
+    func showError(message: String) {
+        let errorView = ErrorViewController()
+        errorView.setup(errorMessage: message)
+        self.present(errorView, animated: true)
+        self.stopIndicatorAnimation()
+    }
+    
+    func startIndicatorAnimation() {
+        self.indicator.startAnimating()
+    }
+    
+    func stopIndicatorAnimation() {
+        self.indicator.stopAnimating()
     }
     
 }
@@ -53,11 +97,20 @@ extension DetailViewController: UITableViewDelegate {
 }
 
 extension DetailViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let _ = self.model else {
             return 0
         }
-        return 2
+        if section == 0 {
+            return 2
+        } else {
+            return self.repos.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -79,9 +132,12 @@ extension DetailViewController: UITableViewDataSource {
                 return cell
             }
         } else {
-            return UITableViewCell()
+            guard let cell = self.tableView.dequeueReusableCell(withIdentifier: DetailRepositoryCell().getIdentifier()) as? DetailRepositoryCell else {
+                return UITableViewCell()
+            }
+            cell.setupCell(titleText: repos[indexPath.row].name)
+            return cell
         }
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -92,7 +148,7 @@ extension DetailViewController: UITableViewDataSource {
                 return DetailInfoCell().height()
             }
         } else {
-            return 0
+            return DetailRepositoryCell().height()
         }
     }
     
@@ -102,6 +158,4 @@ extension DetailViewController: LinkProtocol {
     func openLink(url: URL) {
         UIApplication.shared.open(url)
     }
-    
-    
 }
