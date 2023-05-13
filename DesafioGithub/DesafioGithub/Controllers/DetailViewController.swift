@@ -22,6 +22,11 @@ class DetailViewController: UIViewController {
         self.tableView.delegate = self
         self.view.addSubview(tableView)
         self.setupConstraints()
+        self.setupTableview()
+    }
+    
+    private func setupTableview() {
+        self.tableView.register(DetailImageCell.self, forCellReuseIdentifier: DetailImageCell().getIdentifier())
     }
     
     func setupController(model: UserDetailViewModel){
@@ -29,7 +34,7 @@ class DetailViewController: UIViewController {
         self.title = model.userName
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor),
@@ -48,12 +53,42 @@ extension DetailViewController: UITableViewDelegate {
 
 extension DetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        guard let model = self.model else {
+            return 0
+        }
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let model = self.model else {
+            return UITableViewCell()
+        }
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailImageCell().getIdentifier()) as? DetailImageCell else {
+                    return UITableViewCell()
+                }
+                cell.setupcell(viewModel: model)
+                return cell
+            } else {
+                return UITableViewCell()
+            }
+        } else {
+            return UITableViewCell()
+        }
+        
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                return DetailImageCell().height()
+            } else {
+                return 0
+            }
+        } else {
+            return 0
+        }
+    }
     
 }
