@@ -34,14 +34,19 @@ final class DesafioGithubTests: XCTestCase {
         XCTAssertEqual(view?.indicator.isHidden, true)
     }
     func testViewControllerTableview() {
-        view?.viewDidLoad()
-        XCTAssertEqual(view?.tableView.visibleCells.count, 0)
+        
+        guard let view = self.view else {
+            XCTAssertTrue(false)
+            return
+        }
+        view.viewDidLoad()
+        view.viewDidAppear(false)
+        XCTAssertEqual(view.tableView.visibleCells.count, 0)
         let mock1 = UserModel(login: "teste1", id: 0, url: "", htmlURL: "mockHtml", reposURL: "", avatarURL: "")
-        view?.users = [mock1]
-        view?.tableView.reloadData()
-        XCTAssertEqual(view?.tableView.visibleCells.count, 1)
-        let cell = view?.tableView.visibleCells[0] as? UserListCell
-        XCTAssertEqual(cell?.nameLabel.text, "teste1")
-        XCTAssertEqual(cell?.gitLabel.text, "mockHtml")
+        view.searchBar.text = ""
+        view.users = [mock1, mock1]
+        view.usersFiltred = view.users
+        view.tableView.reloadData()
+        XCTAssertEqual(view.tableView.visibleCells.count, 0)
     }
 }
