@@ -1,0 +1,6 @@
+module Pods_DesafioGithubTests {
+  umbrella header "Pods-DesafioGithubTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
