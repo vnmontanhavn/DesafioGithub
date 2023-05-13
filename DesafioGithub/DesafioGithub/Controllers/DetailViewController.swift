@@ -152,6 +152,13 @@ extension DetailViewController: UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            if let url = URL(string: repos[indexPath.row].htmlUrl) {
+                openLink(url: url)
+            }
+        }
+    }
 }
 
 extension DetailViewController: LinkProtocol {
