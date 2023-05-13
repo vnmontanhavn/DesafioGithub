@@ -33,6 +33,9 @@
 		302D7AB42A0F3C7200C726F4 /* repository.json in Resources */ = {isa = PBXBuildFile; fileRef = 302D7AB32A0F3C7200C726F4 /* repository.json */; };
 		302D7AB62A0F3F8800C726F4 /* UserDetailCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7AB52A0F3F8800C726F4 /* UserDetailCaller.swift */; };
 		302D7AB82A0FE78F00C726F4 /* RepositoryCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7AB72A0FE78F00C726F4 /* RepositoryCaller.swift */; };
+		302D7ABA2A10117600C726F4 /* ErrorViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7AB92A10117600C726F4 /* ErrorViewTests.swift */; };
+		302D7ABC2A10132700C726F4 /* DetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7ABB2A10132700C726F4 /* DetailViewControllerTests.swift */; };
+		302D7ABE2A10191F00C726F4 /* DetailInfoCelltests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7ABD2A10191F00C726F4 /* DetailInfoCelltests.swift */; };
 		9372D8E9E2FEF6ABEBA02A57 /* libPods-DesafioGithub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA85D7CD5FE9FDEAB3B3598 /* libPods-DesafioGithub.a */; };
 		B50E82077B55C2F7BE503BC5 /* libPods-DesafioGithubTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9A35F5AD23D1A04568AF76D /* libPods-DesafioGithubTests.a */; };
 /* End PBXBuildFile section */
@@ -87,6 +90,9 @@
 		302D7AB32A0F3C7200C726F4 /* repository.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = repository.json; sourceTree = "<group>"; };
 		302D7AB52A0F3F8800C726F4 /* UserDetailCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailCaller.swift; sourceTree = "<group>"; };
 		302D7AB72A0FE78F00C726F4 /* RepositoryCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCaller.swift; sourceTree = "<group>"; };
+		302D7AB92A10117600C726F4 /* ErrorViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewTests.swift; sourceTree = "<group>"; };
+		302D7ABB2A10132700C726F4 /* DetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerTests.swift; sourceTree = "<group>"; };
+		302D7ABD2A10191F00C726F4 /* DetailInfoCelltests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoCelltests.swift; sourceTree = "<group>"; };
 		4FA85D7CD5FE9FDEAB3B3598 /* libPods-DesafioGithub.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DesafioGithub.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		579D8555F3373B8135C9FF59 /* Pods-DesafioGithub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioGithub.debug.xcconfig"; path = "Target Support Files/Pods-DesafioGithub/Pods-DesafioGithub.debug.xcconfig"; sourceTree = "<group>"; };
 		8D723A9DB2F5AB0B91942B46 /* Pods-DesafioGithubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioGithubTests.release.xcconfig"; path = "Target Support Files/Pods-DesafioGithubTests/Pods-DesafioGithubTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -163,6 +169,9 @@
 			isa = PBXGroup;
 			children = (
 				302D7A732A0C21AC00C726F4 /* DesafioGithubTests.swift */,
+				302D7AB92A10117600C726F4 /* ErrorViewTests.swift */,
+				302D7ABB2A10132700C726F4 /* DetailViewControllerTests.swift */,
+				302D7ABD2A10191F00C726F4 /* DetailInfoCelltests.swift */,
 			);
 			path = DesafioGithubTests;
 			sourceTree = "<group>";
@@ -490,6 +499,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				302D7A742A0C21AC00C726F4 /* DesafioGithubTests.swift in Sources */,
+				302D7ABA2A10117600C726F4 /* ErrorViewTests.swift in Sources */,
+				302D7ABE2A10191F00C726F4 /* DetailInfoCelltests.swift in Sources */,
+				302D7ABC2A10132700C726F4 /* DetailViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

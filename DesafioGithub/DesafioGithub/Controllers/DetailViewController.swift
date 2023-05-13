@@ -11,10 +11,10 @@ import SDWebImage
 
 class DetailViewController: UIViewController {
     
-    private let tableView = UITableView()
+    let tableView = UITableView()
     private var model: UserDetailViewModel? = nil
     private var indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
-    private var repos: [RepositoryModel] = []
+    var repos: [RepositoryModel] = []
     ///Métodos
     
     override func viewDidLoad() {

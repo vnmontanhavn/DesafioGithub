@@ -26,7 +26,6 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         startIndicatorAnimation()
         UserListCaller().getList { response in
-            print(response)
             self.users = response
             self.tableView.reloadData()
             self.stopIndicatorAnimation()
@@ -114,7 +113,6 @@ extension ViewController: UITableViewDataSource {
         let userURL = users[indexPath.row].url
         UserDetailCaller().getDetail(userURL: userURL) { response in
             self.stopIndicatorAnimation()
-            print(response)
             let detail = UserDetailViewModel(userName: response.login, realName: response.name, imageURL: response.avatarURL, gitURL: response.url, blogURL: response.blog, twitterUsername: response.twitter, followers: response.followers, following: response.following, repositoresURL: response.repos)
             let detailView = DetailViewController()
             detailView.setupController(model: detail)
