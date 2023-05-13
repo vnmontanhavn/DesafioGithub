@@ -25,15 +25,21 @@ class DetailInfoCell: UITableViewCell {
     func setupCell(model: UserDetailViewModel, linkDelegate: LinkProtocol) {
         self.linkDelegate = linkDelegate
         self.model = model
+        self.selectionStyle = .none
+        self.contentView.isUserInteractionEnabled = false
         self.realName.text = model.realName
         self.followers.text = "followers: \(model.followers)"
         self.following.text = "following: \(model.following)"
         self.linkBlog.setTitle("Blog", for: .normal)
         self.linkBlog.setTitleColor(.blue, for: .normal)
+        self.linkBlog.setTitleColor(.red, for: .selected)
+        self.linkBlog.addTarget(self, action: #selector(linkBlogAction(_:)), for: .touchUpInside)
         self.linkGit.setTitle("Git", for: .normal)
         self.linkGit.setTitleColor(.blue, for: .normal)
+        self.linkGit.addTarget(self, action: #selector(linkGitAction(_:)), for: .touchUpInside)
         self.linkTwitter.setTitle("Twitter", for: .normal)
         self.linkTwitter.setTitleColor(.blue, for: .normal)
+        self.linkTwitter.addTarget(self, action: #selector(linkTwitterAction(_:)), for: .touchUpInside)
         setupView()
     }
     private func setupView() {
@@ -74,6 +80,34 @@ class DetailInfoCell: UITableViewCell {
             self.linkTwitter.heightAnchor.constraint(equalToConstant: 20),
             
         ])
+    }
+    @objc func linkBlogAction(_ sender:UIButton!) {
+        guard let model = self.model else {
+            return
+        }
+        if let url = URL(string: model.blogURL){
+            linkDelegate?.openLink(url: url)
+        }
+    }
+    
+    @objc func linkGitAction(_ sender:UIButton!) {
+        guard let model = self.model else {
+            return
+        }
+        if let url = URL(string: model.gitURL){
+            linkDelegate?.openLink(url: url)
+        }
+    }
+    
+    @objc func linkTwitterAction(_ sender:UIButton!) {
+        guard let model = self.model else {
+            return
+        }
+       // let address = "https://www.twitter.com/ \(model.twitterUsername)"
+        //print(address)
+        if let url = URL(string: "https://www.twitter.com/\(model.twitterUsername)"){
+            linkDelegate?.openLink(url: url)
+        }
     }
 }
 

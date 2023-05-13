@@ -100,7 +100,7 @@ extension DetailViewController: UITableViewDataSource {
 
 extension DetailViewController: LinkProtocol {
     func openLink(url: URL) {
-        print("abre link: \(url)")
+        UIApplication.shared.open(url)
     }
     
     
