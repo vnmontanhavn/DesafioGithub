@@ -27,6 +27,7 @@ class DetailViewController: UIViewController {
     
     private func setupTableview() {
         self.tableView.register(DetailImageCell.self, forCellReuseIdentifier: DetailImageCell().getIdentifier())
+        self.tableView.register(DetailInfoCell.self, forCellReuseIdentifier: DetailInfoCell().getIdentifier())
     }
     
     func setupController(model: UserDetailViewModel){
@@ -53,10 +54,10 @@ extension DetailViewController: UITableViewDelegate {
 
 extension DetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let model = self.model else {
+        guard let _ = self.model else {
             return 0
         }
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -71,7 +72,11 @@ extension DetailViewController: UITableViewDataSource {
                 cell.setupcell(viewModel: model)
                 return cell
             } else {
-                return UITableViewCell()
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailInfoCell().getIdentifier()) as? DetailInfoCell else {
+                    return UITableViewCell()
+                }
+                cell.setupCell(model: model, linkDelegate: self)
+                return cell
             }
         } else {
             return UITableViewCell()
@@ -84,11 +89,19 @@ extension DetailViewController: UITableViewDataSource {
             if indexPath.row == 0 {
                 return DetailImageCell().height()
             } else {
-                return 0
+                return DetailInfoCell().height()
             }
         } else {
             return 0
         }
     }
+    
+}
+
+extension DetailViewController: LinkProtocol {
+    func openLink(url: URL) {
+        print("abre link: \(url)")
+    }
+    
     
 }
