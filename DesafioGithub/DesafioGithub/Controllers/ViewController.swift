@@ -103,10 +103,24 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let mock = UserDetailViewModel(userName: "Teste 1", realName: "Teste2", imageURL: "", gitURL: "", blogURL: "", twitterUsername: "", followers: 0, following: 1, repositoresURL: "")
-        let newView = DetailViewController()
-        newView.setupController(model: mock)
-        self.navigationController?.pushViewController(newView, animated: true)
+        if users.count <= indexPath.row {
+            return
+        }
+        startIndicatorAnimation()
+        let userURL = users[indexPath.row].url
+        UserDetailCaller().getDetail(userURL: userURL) { response in
+            self.stopIndicatorAnimation()
+            print(response)
+            let detail = UserDetailViewModel(userName: response.login, realName: response.name, imageURL: response.avatarURL, gitURL: response.url, blogURL: response.blog, twitterUsername: response.twitter, followers: response.followers, following: response.following, repositoresURL: response.repos)
+            let detailView = DetailViewController()
+            detailView.setupController(model: detail)
+            self.navigationController?.pushViewController(detailView, animated: true)
+        } fail: { errorString in
+            let errorView = ErrorViewController()
+            errorView.setup(errorMessage: errorString)
+            self.present(errorView, animated: true)
+            self.stopIndicatorAnimation()
+        }
     }
     
 }

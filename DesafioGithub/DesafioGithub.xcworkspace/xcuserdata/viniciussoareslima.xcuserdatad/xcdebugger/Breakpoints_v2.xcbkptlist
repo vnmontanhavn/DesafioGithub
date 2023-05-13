@@ -3,4 +3,84 @@
    uuid = "EBB23EBA-F6E5-4F70-A410-B099FF1059AF"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C1008270-B8AD-4C6C-A9A1-13F0DA39B8FB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DesafioGithub/Callers/UserDetailCaller.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "getDetail(userURL:success:fail:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C1008270-B8AD-4C6C-A9A1-13F0DA39B8FB - e5d5c34f712c2195"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DesafioGithub.UserDetailCaller.getDetail(userURL: Swift.String, success: (Swift.Array&lt;DesafioGithub.DetailModel&gt;) -&gt; (), fail: (Swift.String) -&gt; ()) -&gt; ()"
+                  moduleName = "DesafioGithub"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/viniciussoareslima/Documents/DesafioGithub/DesafioGithub/DesafioGithub/Callers/UserDetailCaller.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "C1008270-B8AD-4C6C-A9A1-13F0DA39B8FB - ed62636eed7dc125"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in DesafioGithub.UserDetailCaller.getDetail(userURL: Swift.String, success: (Swift.Array&lt;DesafioGithub.DetailModel&gt;) -&gt; (), fail: (Swift.String) -&gt; ()) -&gt; ()"
+                  moduleName = "DesafioGithub"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/viniciussoareslima/Documents/DesafioGithub/DesafioGithub/DesafioGithub/Callers/UserDetailCaller.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "328">
+               </Location>
+               <Location
+                  uuid = "C1008270-B8AD-4C6C-A9A1-13F0DA39B8FB - 823b318fc4703345"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DesafioGithub.UserDetailCaller.getDetail(userURL: Swift.String, success: (DesafioGithub.DetailModel) -&gt; (), fail: (Swift.String) -&gt; ()) -&gt; ()"
+                  moduleName = "DesafioGithub"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/viniciussoareslima/Documents/DesafioGithub/DesafioGithub/DesafioGithub/Callers/UserDetailCaller.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "C1008270-B8AD-4C6C-A9A1-13F0DA39B8FB - 807467db6d90272e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in DesafioGithub.UserDetailCaller.getDetail(userURL: Swift.String, success: (DesafioGithub.DetailModel) -&gt; (), fail: (Swift.String) -&gt; ()) -&gt; ()"
+                  moduleName = "DesafioGithub"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/viniciussoareslima/Documents/DesafioGithub/DesafioGithub/DesafioGithub/Callers/UserDetailCaller.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "292">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

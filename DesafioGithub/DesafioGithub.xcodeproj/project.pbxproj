@@ -29,6 +29,9 @@
 		302D7AAC2A0EF82900C726F4 /* RepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7AAB2A0EF82900C726F4 /* RepositoryModel.swift */; };
 		302D7AAE2A0EF85300C726F4 /* DetailInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7AAD2A0EF85300C726F4 /* DetailInfoCell.swift */; };
 		302D7AB02A0EF87300C726F4 /* DetailRepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7AAF2A0EF87300C726F4 /* DetailRepositoryCell.swift */; };
+		302D7AB22A0F3C5E00C726F4 /* detail.json in Resources */ = {isa = PBXBuildFile; fileRef = 302D7AB12A0F3C5E00C726F4 /* detail.json */; };
+		302D7AB42A0F3C7200C726F4 /* repository.json in Resources */ = {isa = PBXBuildFile; fileRef = 302D7AB32A0F3C7200C726F4 /* repository.json */; };
+		302D7AB62A0F3F8800C726F4 /* UserDetailCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7AB52A0F3F8800C726F4 /* UserDetailCaller.swift */; };
 		9372D8E9E2FEF6ABEBA02A57 /* libPods-DesafioGithub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA85D7CD5FE9FDEAB3B3598 /* libPods-DesafioGithub.a */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +80,9 @@
 		302D7AAB2A0EF82900C726F4 /* RepositoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryModel.swift; sourceTree = "<group>"; };
 		302D7AAD2A0EF85300C726F4 /* DetailInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoCell.swift; sourceTree = "<group>"; };
 		302D7AAF2A0EF87300C726F4 /* DetailRepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRepositoryCell.swift; sourceTree = "<group>"; };
+		302D7AB12A0F3C5E00C726F4 /* detail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = detail.json; sourceTree = "<group>"; };
+		302D7AB32A0F3C7200C726F4 /* repository.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = repository.json; sourceTree = "<group>"; };
+		302D7AB52A0F3F8800C726F4 /* UserDetailCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailCaller.swift; sourceTree = "<group>"; };
 		4FA85D7CD5FE9FDEAB3B3598 /* libPods-DesafioGithub.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DesafioGithub.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		579D8555F3373B8135C9FF59 /* Pods-DesafioGithub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioGithub.debug.xcconfig"; path = "Target Support Files/Pods-DesafioGithub/Pods-DesafioGithub.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -188,6 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				302D7A912A0D676200C726F4 /* users.json */,
+				302D7AB12A0F3C5E00C726F4 /* detail.json */,
+				302D7AB32A0F3C7200C726F4 /* repository.json */,
 			);
 			path = Jsons;
 			sourceTree = "<group>";
@@ -196,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				302D7A962A0D6F0300C726F4 /* UserListCaller.swift */,
+				302D7AB52A0F3F8800C726F4 /* UserDetailCaller.swift */,
 			);
 			path = Callers;
 			sourceTree = "<group>";
@@ -369,7 +378,9 @@
 			files = (
 				302D7A922A0D676200C726F4 /* users.json in Resources */,
 				302D7A692A0C21AC00C726F4 /* LaunchScreen.storyboard in Resources */,
+				302D7AB22A0F3C5E00C726F4 /* detail.json in Resources */,
 				302D7A662A0C21AC00C726F4 /* Assets.xcassets in Resources */,
+				302D7AB42A0F3C7200C726F4 /* repository.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +438,7 @@
 				302D7AAC2A0EF82900C726F4 /* RepositoryModel.swift in Sources */,
 				302D7AA52A0EC50A00C726F4 /* UserDetailViewModel.swift in Sources */,
 				302D7A5F2A0C21AA00C726F4 /* SceneDelegate.swift in Sources */,
+				302D7AB62A0F3F8800C726F4 /* UserDetailCaller.swift in Sources */,
 				302D7AB02A0EF87300C726F4 /* DetailRepositoryCell.swift in Sources */,
 				302D7A942A0D694900C726F4 /* UserModel.swift in Sources */,
 				302D7A8E2A0C261600C726F4 /* ErrorViewController.swift in Sources */,
