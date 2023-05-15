@@ -8,27 +8,6 @@
 import Foundation
 import Alamofire
 
-protocol CallResponseDelegate {
-    func success<T>(response: T)
-    func fail(errorMessage: String)
-}
-
-protocol CallerProtocol {
-    init(delegate: CallResponseDelegate?)
-    var delegate: CallResponseDelegate? {get set}
-    func call(userURL: String?)
-    func call()
-}
-
-extension CallerProtocol {
-    func call(userURL: String?) {
-        //
-    }
-    func call() {
-        //
-    }
-}
-
 class UserListCaller: CallerProtocol {
     internal var delegate: CallResponseDelegate?
     
