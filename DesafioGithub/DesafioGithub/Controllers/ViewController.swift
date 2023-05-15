@@ -14,11 +14,14 @@ class ViewController: UIViewController {
     var usersFiltred: [UserModel] = []
     var indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
     var searchBar = UISearchBar()
+    var listCallDelegate: CallerProtocol?
+    var detailCallDelegate: CallerProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .red
         title = "Usuarios"
+        setupCallers()
         setupTableView()
         setupSearchBar()
         setupActivityIndicator()
@@ -29,14 +32,12 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         startIndicatorAnimation()
         self.searchBar.text = ""
-        UserListCaller().getList { response in
-            self.users = response
-            self.usersFiltred = self.users
-            self.tableView.reloadData()
-            self.stopIndicatorAnimation()
-        } fail: { errorString in
-            self.showError(message: errorString)
-        }
+        listCallDelegate?.call()
+    }
+    
+    func setupCallers() {
+        listCallDelegate = UserListCaller(delegate: self)
+        detailCallDelegate = UserDetailCaller(delegate: self)
     }
     
     func setupSearchBar() {
@@ -137,16 +138,7 @@ extension ViewController: UITableViewDataSource {
             return
         }
         startIndicatorAnimation()
-        let userURL = usersFiltred[indexPath.row].url
-        UserDetailCaller().getDetail(userURL: userURL) { response in
-            self.stopIndicatorAnimation()
-            let detail = UserDetailViewModel(userName: response.login, realName: response.name, imageURL: response.avatarURL, gitURL: response.url, blogURL: response.blog, twitterUsername: response.twitter, followers: response.followers, following: response.following, repositoresURL: response.repos)
-            let detailView = DetailViewController()
-            detailView.setupController(model: detail)
-            self.navigationController?.pushViewController(detailView, animated: true)
-        } fail: { errorString in
-            self.showError(message: errorString)
-        }
+        detailCallDelegate?.call(userURL: usersFiltred[indexPath.row].url)
     }
 }
 
@@ -157,4 +149,28 @@ extension ViewController: UISearchBarDelegate {
                 }
         self.tableView.reloadData()
     }
+}
+
+extension ViewController: CallResponseDelegate {
+    func success<T>(response: T) {
+        if let response = response as? [UserModel] {
+            self.users = response
+            self.usersFiltred = self.users
+            self.tableView.reloadData()
+            self.stopIndicatorAnimation()
+        }
+        if let response = response as? DetailModel {
+            self.stopIndicatorAnimation()
+            let detail = UserDetailViewModel(userName: response.login, realName: response.name, imageURL: response.avatarURL, gitURL: response.url, blogURL: response.blog, twitterUsername: response.twitter, followers: response.followers, following: response.following, repositoresURL: response.repos)
+            let detailView = DetailViewController()
+            detailView.setupController(model: detail)
+            self.navigationController?.pushViewController(detailView, animated: true)
+        }
+    }
+    
+    func fail(errorMessage: String) {
+        self.showError(message: errorMessage)
+    }
+    
+    
 }

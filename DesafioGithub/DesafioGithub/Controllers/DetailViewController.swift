@@ -15,10 +15,12 @@ class DetailViewController: UIViewController {
     private var model: UserDetailViewModel? = nil
     private var indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
     var repos: [RepositoryModel] = []
+    var repoCallDelegate: CallerProtocol?
     ///Métodos
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        repoCallDelegate = RepositoryCaller(delegate: self)
         self.view.backgroundColor = .blue
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -63,17 +65,8 @@ class DetailViewController: UIViewController {
             return
         }
         startIndicatorAnimation()
-        if let url = URL(string: model.repositoresURL) {
-            RepositoryCaller().getList(url: url) { response in
-                print(response)
-                self.repos = response
-                self.tableView.reloadData()
-                self.stopIndicatorAnimation()
-            } fail: { errorMessage in
-                self.showError(message: errorMessage)
-                self.stopIndicatorAnimation()
-            }
-        }
+        
+        repoCallDelegate?.call(userURL: model.repositoresURL)
     }
     func showError(message: String) {
         let errorView = ErrorViewController()
@@ -165,4 +158,20 @@ extension DetailViewController: LinkProtocol {
     func openLink(url: URL) {
         UIApplication.shared.open(url)
     }
+}
+
+extension DetailViewController: CallResponseDelegate {
+    func success<T>(response: T) {
+        if let response = response as? [RepositoryModel] {
+            self.repos = response
+            self.tableView.reloadData()
+            self.stopIndicatorAnimation()
+        }
+    }
+    
+    func fail(errorMessage: String) {
+        self.showError(message: errorMessage)
+    }
+    
+    
 }
