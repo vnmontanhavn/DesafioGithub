@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class DetailRepositoryCell: UITableViewCell {
-    var title = UILabel()
+    lazy var title = UILabel()
     
     func setupCell(titleText: String){
         self.title.text = titleText

@@ -9,11 +9,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var tableView = UITableView()
+    lazy var tableView = UITableView()
     var users: [UserModel] = []
     var usersFiltred: [UserModel] = []
-    var indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
-    var searchBar = UISearchBar()
+    lazy var indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
+    lazy var searchBar = UISearchBar()
     var listCallDelegate: CallerProtocol?
     var detailCallDelegate: CallerProtocol?
     

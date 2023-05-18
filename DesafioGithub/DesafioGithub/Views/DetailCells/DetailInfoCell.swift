@@ -13,12 +13,12 @@ protocol LinkProtocol {
 }
 
 class DetailInfoCell: UITableViewCell {
-    var realName = UILabel()
-    var followers = UILabel()
-    var following = UILabel()
-    var linkBlog = UIButton()
-    var linkGit = UIButton()
-    var linkTwitter = UIButton()
+    lazy var realName = UILabel()
+    lazy var followers = UILabel()
+    lazy var following = UILabel()
+    lazy var linkBlog = UIButton()
+    lazy var linkGit = UIButton()
+    lazy var linkTwitter = UIButton()
     var linkDelegate: LinkProtocol? = nil
     var model: UserDetailViewModel? = nil
     

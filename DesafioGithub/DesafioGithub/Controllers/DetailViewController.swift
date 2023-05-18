@@ -11,7 +11,7 @@ import SDWebImage
 
 class DetailViewController: UIViewController {
     
-    let tableView = UITableView()
+    lazy var tableView = UITableView()
     private var model: UserDetailViewModel? = nil
     private var indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
     var repos: [RepositoryModel] = []
