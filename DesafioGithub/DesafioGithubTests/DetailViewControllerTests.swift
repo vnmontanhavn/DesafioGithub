@@ -29,11 +29,16 @@ final class DetailViewControllerTests: XCTestCase {
     var view: DetailViewController?
     var mockDelegate: RepoMock?
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
         view = DetailViewController()
         mockDelegate = RepoMock(delegate: view)
+        view?.repoCallDelegate = mockDelegate
+        let userMock = UserDetailViewModel(userName: "testeNome", realName: "testeNomeReal", imageURL: "", gitURL: "testeGit", blogURL: "testeBlog", twitterUsername: "testeTwitter", followers: 100, following: 200, repositoresURL: "")
+        view?.setupController(model: userMock)
         view?.view.layoutIfNeeded()
-        
+        let window = UIWindow(frame: UIScreen.main.bounds)
+          window.makeKeyAndVisible()
+          window.rootViewController = view
     }
     
     override func tearDownWithError() throws {
@@ -42,14 +47,15 @@ final class DetailViewControllerTests: XCTestCase {
     }
     
     func testDetailView() {
-        let userMock = UserDetailViewModel(userName: "testeNome", realName: "testeNomeReal", imageURL: "", gitURL: "testeGit", blogURL: "testeBlog", twitterUsername: "testeTwitter", followers: 100, following: 200, repositoresURL: "")
-        view?.setupController(model: userMock)
-        XCTAssertEqual(view?.title, "testeNome")
-        view?.viewDidLoad()
-        view?.repoCallDelegate = mockDelegate
-        view?.viewWillAppear(false)
-        XCTAssertEqual(view?.view.backgroundColor, .blue)
-        view?.tableView.reloadData()
-        XCTAssertEqual(view?.tableView.visibleCells.count, 1)
+        guard let view = self.view else {
+            XCTAssertTrue(false)
+            return
+        }
+        XCTAssertEqual(view.title, "testeNome")
+        view.viewDidLoad()
+        view.repoCallDelegate = mockDelegate
+        view.viewWillAppear(false)
+        XCTAssertEqual(view.view.backgroundColor, .blue)
+        XCTAssertEqual(view.tableView.visibleCells.count, 5)
     }
 }
