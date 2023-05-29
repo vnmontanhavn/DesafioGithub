@@ -10,7 +10,7 @@ import UIKit
 import SDWebImage
 
 class DetailImageCell: UITableViewCell {
-    var image = UIImageView(frame: .zero)
+    lazy var image = UIImageView(frame: .zero)
     
     func setupcell(viewModel: UserDetailViewModel) {
         let url = URL(string: viewModel.imageURL)

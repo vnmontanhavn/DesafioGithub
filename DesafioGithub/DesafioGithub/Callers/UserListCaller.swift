@@ -8,20 +8,30 @@
 import Foundation
 import Alamofire
 
-class UserListCaller {
-    func getList(completion: @escaping ([UserModel]) -> Void, fail: @escaping (String) -> Void) {
+class UserListCaller: CallerProtocol {
+    internal var delegate: CallResponseDelegate?
+    
+    required init(delegate: CallResponseDelegate? = nil) {
+        self.delegate = delegate
+    }
+    
+    func call() {
+        getList()
+    }
+    
+    func getList() {
         AF.request("https://api.github.com/users").responseJSON { response in
             do {
                 let decoder = JSONDecoder()
                 if let value = response.data {
                     let myResponse = try decoder.decode([UserModel].self, from: value)
-                    completion(myResponse)
+                    self.delegate?.success(response: myResponse)
                 } else {
-                    fail(response.error?.localizedDescription ?? "Um erro aconteceu")
+                    self.delegate?.fail(errorMessage: response.error?.localizedDescription ?? "Um erro aconteceu")
                 }
             }
             catch {
-                fail(error.localizedDescription)
+                self.delegate?.fail(errorMessage: error.localizedDescription)
             }
         }
     }

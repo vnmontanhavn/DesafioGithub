@@ -36,6 +36,7 @@
 		302D7ABA2A10117600C726F4 /* ErrorViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7AB92A10117600C726F4 /* ErrorViewTests.swift */; };
 		302D7ABC2A10132700C726F4 /* DetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7ABB2A10132700C726F4 /* DetailViewControllerTests.swift */; };
 		302D7ABE2A10191F00C726F4 /* DetailInfoCelltests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7ABD2A10191F00C726F4 /* DetailInfoCelltests.swift */; };
+		302D7AC02A12DDB600C726F4 /* CallerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7ABF2A12DDB600C726F4 /* CallerProtocols.swift */; };
 		9372D8E9E2FEF6ABEBA02A57 /* libPods-DesafioGithub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA85D7CD5FE9FDEAB3B3598 /* libPods-DesafioGithub.a */; };
 		B50E82077B55C2F7BE503BC5 /* libPods-DesafioGithubTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9A35F5AD23D1A04568AF76D /* libPods-DesafioGithubTests.a */; };
 /* End PBXBuildFile section */
@@ -93,6 +94,7 @@
 		302D7AB92A10117600C726F4 /* ErrorViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewTests.swift; sourceTree = "<group>"; };
 		302D7ABB2A10132700C726F4 /* DetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerTests.swift; sourceTree = "<group>"; };
 		302D7ABD2A10191F00C726F4 /* DetailInfoCelltests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoCelltests.swift; sourceTree = "<group>"; };
+		302D7ABF2A12DDB600C726F4 /* CallerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallerProtocols.swift; sourceTree = "<group>"; };
 		4FA85D7CD5FE9FDEAB3B3598 /* libPods-DesafioGithub.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DesafioGithub.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		579D8555F3373B8135C9FF59 /* Pods-DesafioGithub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioGithub.debug.xcconfig"; path = "Target Support Files/Pods-DesafioGithub/Pods-DesafioGithub.debug.xcconfig"; sourceTree = "<group>"; };
 		8D723A9DB2F5AB0B91942B46 /* Pods-DesafioGithubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioGithubTests.release.xcconfig"; path = "Target Support Files/Pods-DesafioGithubTests/Pods-DesafioGithubTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				302D7A962A0D6F0300C726F4 /* UserListCaller.swift */,
 				302D7AB52A0F3F8800C726F4 /* UserDetailCaller.swift */,
 				302D7AB72A0FE78F00C726F4 /* RepositoryCaller.swift */,
+				302D7ABF2A12DDB600C726F4 /* CallerProtocols.swift */,
 			);
 			path = Callers;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				302D7AA22A0EC21F00C726F4 /* DetailViewController.swift in Sources */,
 				302D7A972A0D6F0300C726F4 /* UserListCaller.swift in Sources */,
 				302D7AA02A0DF04D00C726F4 /* CellsProtocols.swift in Sources */,
+				302D7AC02A12DDB600C726F4 /* CallerProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

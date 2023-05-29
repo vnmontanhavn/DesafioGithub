@@ -8,20 +8,32 @@
 import Foundation
 import Alamofire
 
-class RepositoryCaller {
-    func getList(url: URL, success: @escaping ([RepositoryModel]) -> Void, fail: @escaping (String) -> Void) {
+class RepositoryCaller: CallerProtocol {
+    var delegate: CallResponseDelegate?
+    
+    required init(delegate: CallResponseDelegate?) {
+        self.delegate = delegate
+    }
+    
+    func call(userURL: String?) {
+        if let urlAddress = userURL,  let url = URL(string: urlAddress) {
+            getList(url: url)
+        }
+    }
+    
+    func getList(url: URL) {
         AF.request(url).responseJSON { response in
             do {
                 let decoder = JSONDecoder()
                 if let value = response.data {
                     let myResponse = try decoder.decode([RepositoryModel].self, from: value)
-                    success(myResponse)
+                    self.delegate?.success(response: myResponse)
                 } else {
-                    fail(response.error?.localizedDescription ?? "Um erro aconteceu")
+                    self.delegate?.fail(errorMessage: response.error?.localizedDescription ?? "Um erro aconteceu")
                 }
             }
             catch {
-                fail(error.localizedDescription)
+                self.delegate?.fail(errorMessage: error.localizedDescription)
             }
         }
     }

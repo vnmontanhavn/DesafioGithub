@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class ErrorViewController: UIViewController {
-    var label: UILabel = UILabel()
+    lazy var label: UILabel = UILabel()
     private let icon = UIImageView(image: UIImage(named: "erro"))
     private let background = UIView()
     

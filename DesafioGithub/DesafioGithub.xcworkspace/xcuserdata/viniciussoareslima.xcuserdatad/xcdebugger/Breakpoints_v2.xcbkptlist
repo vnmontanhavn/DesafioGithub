@@ -7,49 +7,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0E10284A-8F16-4856-A088-6035824FB329"
-            shouldBeEnabled = "Yes"
+            uuid = "D7B9F960-6C25-45EE-A628-3DAFD3457E90"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DesafioGithubTests/DesafioGithubTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "testViewControllerTableview()"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "call()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "0E10284A-8F16-4856-A088-6035824FB329 - 94c8baae7476cd3a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DesafioGithubTests.DesafioGithubTests.testViewControllerTableview() -&gt; ()"
-                  moduleName = "DesafioGithubTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/viniciussoareslima/Documents/DesafioGithub/DesafioGithub/DesafioGithubTests/DesafioGithubTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "1252">
-               </Location>
-               <Location
-                  uuid = "0E10284A-8F16-4856-A088-6035824FB329 - 94c8baae7476cd05"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DesafioGithubTests.DesafioGithubTests.testViewControllerTableview() -&gt; ()"
-                  moduleName = "DesafioGithubTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/viniciussoareslima/Documents/DesafioGithub/DesafioGithub/DesafioGithubTests/DesafioGithubTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "50"
-                  endingLineNumber = "50"
-                  offsetFromSymbolStart = "1252">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0B6BC91B-7245-4892-90AF-12B045E17525"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DesafioGithub/Controllers/DetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "73ED4267-0B3B-421B-B4F6-5892A98C0207"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DesafioGithub/Controllers/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "setupAlertAction(alert:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

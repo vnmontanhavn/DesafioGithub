@@ -8,20 +8,32 @@
 import Foundation
 import Alamofire
 
-class UserDetailCaller {
-    func getDetail (userURL: String, success: @escaping (DetailModel) -> Void, fail: @escaping (String) -> Void) {
+class UserDetailCaller: CallerProtocol {
+    internal var delegate: CallResponseDelegate?
+    
+    required init(delegate: CallResponseDelegate? = nil) {
+        self.delegate = delegate
+    }
+    
+    func call(userURL: String?) {
+        if let url = userURL {
+            getDetail(userURL: url)
+        }
+    }
+    
+    func getDetail (userURL: String) {
         AF.request(userURL).responseJSON { response in
             do {
                 let decoder = JSONDecoder()
                 if let value = response.data {
                     let myResponse = try decoder.decode(DetailModel.self, from: value)
-                    success(myResponse)
+                    self.delegate?.success(response: myResponse)
                 } else {
-                    fail(response.error?.localizedDescription ?? "Um erro aconteceu")
+                    self.delegate?.fail(errorMessage: response.error?.localizedDescription ?? "Um erro aconteceu")
                 }
             }
             catch {
-                fail(error.localizedDescription)
+                self.delegate?.fail(errorMessage: error.localizedDescription)
             }
         }
     }

@@ -11,9 +11,9 @@ import SDWebImage
 
 class UserListCell: UITableViewCell {
     
-    var nameLabel: UILabel = UILabel()
-    var gitLabel: UILabel = UILabel()
-    var image: UIImageView = UIImageView(frame: .zero )
+    lazy var nameLabel: UILabel = UILabel()
+    lazy var gitLabel: UILabel = UILabel()
+    lazy var image: UIImageView = UIImageView(frame: .zero )
     
     func clearSetup() {
         self.subviews.forEach({ $0.removeFromSuperview() })

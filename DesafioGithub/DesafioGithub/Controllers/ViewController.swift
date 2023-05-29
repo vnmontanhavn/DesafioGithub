@@ -9,19 +9,23 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var tableView = UITableView()
+    lazy var tableView = UITableView()
     var users: [UserModel] = []
     var usersFiltred: [UserModel] = []
-    var indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
-    var searchBar = UISearchBar()
+    lazy var indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
+    lazy var searchBar = UISearchBar()
+    var listCallDelegate: CallerProtocol?
+    var detailCallDelegate: CallerProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .red
         title = "Usuarios"
+        setupCallers()
         setupTableView()
         setupSearchBar()
         setupActivityIndicator()
+        setupSearchButton()
         setupConstraints()
     }
     
@@ -29,14 +33,17 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         startIndicatorAnimation()
         self.searchBar.text = ""
-        UserListCaller().getList { response in
-            self.users = response
-            self.usersFiltred = self.users
-            self.tableView.reloadData()
-            self.stopIndicatorAnimation()
-        } fail: { errorString in
-            self.showError(message: errorString)
-        }
+        listCallDelegate?.call()
+    }
+    
+    func setupCallers() {
+        listCallDelegate = UserListCaller(delegate: self)
+        detailCallDelegate = UserDetailCaller(delegate: self)
+    }
+    
+    func setupSearchButton() {
+        let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showSearchAlert))
+        self.navigationItem.rightBarButtonItem = searchButton
     }
     
     func setupSearchBar() {
@@ -85,6 +92,26 @@ class ViewController: UIViewController {
         self.stopIndicatorAnimation()
     }
     
+                                            
+    @objc func showSearchAlert(){
+        let alert = UIAlertController(title: "Buscar usuário", message: "", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "user"
+        }
+        alert.addAction(self.setupAlertAction(alert: alert))
+        self.present(alert, animated: true)
+    }
+    
+    func setupAlertAction(alert: UIAlertController) -> UIAlertAction {
+        let action = UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            if let textField = alert?.textFields?[0], let text = textField.text {
+                let urlString = "https://api.github.com/users/\(text)"
+                self.startIndicatorAnimation()
+                self.detailCallDelegate?.call(userURL: urlString)
+            }
+        })
+        return action
+    }
 }
 
 extension ViewController: UITableViewDelegate {
@@ -137,16 +164,7 @@ extension ViewController: UITableViewDataSource {
             return
         }
         startIndicatorAnimation()
-        let userURL = usersFiltred[indexPath.row].url
-        UserDetailCaller().getDetail(userURL: userURL) { response in
-            self.stopIndicatorAnimation()
-            let detail = UserDetailViewModel(userName: response.login, realName: response.name, imageURL: response.avatarURL, gitURL: response.url, blogURL: response.blog, twitterUsername: response.twitter, followers: response.followers, following: response.following, repositoresURL: response.repos)
-            let detailView = DetailViewController()
-            detailView.setupController(model: detail)
-            self.navigationController?.pushViewController(detailView, animated: true)
-        } fail: { errorString in
-            self.showError(message: errorString)
-        }
+        detailCallDelegate?.call(userURL: usersFiltred[indexPath.row].url)
     }
 }
 
@@ -157,4 +175,28 @@ extension ViewController: UISearchBarDelegate {
                 }
         self.tableView.reloadData()
     }
+}
+
+extension ViewController: CallResponseDelegate {
+    func success<T>(response: T) {
+        if let response = response as? [UserModel] {
+            self.users = response
+            self.usersFiltred = self.users
+            self.tableView.reloadData()
+            self.stopIndicatorAnimation()
+        }
+        if let response = response as? DetailModel {
+            self.stopIndicatorAnimation()
+            let detail = UserDetailViewModel(userName: response.login, realName: response.name ?? "unknow", imageURL: response.avatarURL ?? "", gitURL: response.url, blogURL: response.blog ?? "", twitterUsername: response.twitter ?? "", followers: response.followers, following: response.following, repositoresURL: response.repos)
+            let detailView = DetailViewController()
+            detailView.setupController(model: detail)
+            self.navigationController?.pushViewController(detailView, animated: true)
+        }
+    }
+    
+    func fail(errorMessage: String) {
+        self.showError(message: errorMessage)
+    }
+    
+    
 }
