@@ -164,13 +164,17 @@ extension DetailViewController: CallResponseDelegate {
     func success<T>(response: T) {
         if let response = response as? [RepositoryModel] {
             self.repos = response
-            self.tableView.reloadData()
-            self.stopIndicatorAnimation()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.stopIndicatorAnimation()
+            }
         }
     }
     
     func fail(errorMessage: String) {
-        self.showError(message: errorMessage)
+        DispatchQueue.main.async {
+            self.showError(message: errorMessage)
+        }
     }
     
     

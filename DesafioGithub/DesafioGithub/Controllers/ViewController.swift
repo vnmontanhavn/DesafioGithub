@@ -86,10 +86,12 @@ class ViewController: UIViewController {
     }
     
     func showError(message: String) {
-        let errorView = ErrorViewController()
-        errorView.setup(errorMessage: message)
-        self.present(errorView, animated: true)
-        self.stopIndicatorAnimation()
+        DispatchQueue.main.async {
+            let errorView = ErrorViewController()
+            errorView.setup(errorMessage: message)
+            self.present(errorView, animated: true)
+            self.stopIndicatorAnimation()
+        }
     }
     
                                             
@@ -182,15 +184,20 @@ extension ViewController: CallResponseDelegate {
         if let response = response as? [UserModel] {
             self.users = response
             self.usersFiltred = self.users
-            self.tableView.reloadData()
-            self.stopIndicatorAnimation()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.stopIndicatorAnimation()
+            }
+            
         }
         if let response = response as? DetailModel {
             self.stopIndicatorAnimation()
             let detail = UserDetailViewModel(userName: response.login, realName: response.name ?? "unknow", imageURL: response.avatarURL ?? "", gitURL: response.url, blogURL: response.blog ?? "", twitterUsername: response.twitter ?? "", followers: response.followers, following: response.following, repositoresURL: response.repos)
             let detailView = DetailViewController()
             detailView.setupController(model: detail)
-            self.navigationController?.pushViewController(detailView, animated: true)
+            DispatchQueue.main.async {
+                self.navigationController?.pushViewController(detailView, animated: true)
+            }
         }
     }
     
