@@ -19,7 +19,7 @@ class Mock: CallerProtocol {
         delegate?.success(response: list)
     }
     func call(userURL: String?) {
-        let detail = DetailModel(login: "", avatarURL: "", name: "", url: "", blog: "", twitter: "", repos: "", followers: 1, following: 2)
+        let detail = DetailModel(login: "testeNome", url: "testeGit", repos: "", followers: 100, following: 200)
         delegate?.success(response: detail)
     }
 }
@@ -27,12 +27,18 @@ class Mock: CallerProtocol {
 final class DesafioGithubTests: XCTestCase {
     var view: ViewController?
     var mockDelegate: Mock?
+    var viewModel: ViewModelList?
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        view = ViewController()
-        mockDelegate = Mock(delegate: view)
-        view?.listCallDelegate = mockDelegate
-        view?.detailCallDelegate = mockDelegate
+        viewModel = ViewModelList()
+        guard let viewModel = viewModel else {
+            fatalError("load Error")
+        }
+        let model = Model(delegate: viewModel)
+        viewModel.model = model
+        mockDelegate = Mock(delegate: model)
+        model.listCallDelegate = mockDelegate
+        model.detailCallDelegate = mockDelegate
+        view = viewModel.setupController() as? ViewController
         view?.view.layoutIfNeeded()
         
     }
@@ -44,18 +50,12 @@ final class DesafioGithubTests: XCTestCase {
 
     func testViewControllerLoad() {
         view?.viewDidLoad()
-        view?.listCallDelegate = mockDelegate
-        view?.detailCallDelegate = mockDelegate
         view?.viewDidAppear(false)
         XCTAssertEqual(view?.title, "Usuarios")
     }
     func testViewControllerActivety() {
         view?.viewDidLoad()
-        view?.listCallDelegate = mockDelegate
-        view?.detailCallDelegate = mockDelegate
         view?.viewDidAppear(false)
-        XCTAssertEqual(view?.indicator.isHidden, true)
-        view?.startIndicatorAnimation()
         XCTAssertEqual(view?.indicator.isHidden, false)
         view?.stopIndicatorAnimation()
         XCTAssertEqual(view?.indicator.isHidden, true)
@@ -67,15 +67,31 @@ final class DesafioGithubTests: XCTestCase {
             return
         }
         view.viewDidLoad()
-        view.listCallDelegate = mockDelegate
-        view.detailCallDelegate = mockDelegate
         view.viewDidAppear(false)
         XCTAssertEqual(view.tableView.visibleCells.count, 1)
-        let mock1 = UserModel(login: "teste1", id: 0, url: "", htmlURL: "mockHtml", reposURL: "", avatarURL: "")
+        let mock1 = UserListItemViewModel(name: "teste1", imageURL: "mockHtml", gitURL: "", apiURL: "www.com.br")
         view.searchBar.text = ""
         view.users = [mock1, mock1]
         view.usersFiltred = view.users
         view.tableView.reloadData()
         XCTAssertEqual(view.tableView.visibleCells.count, 2)
+    }
+    func testGetDetail() {
+        guard let view = view else {
+            fatalError("load error")
+        }
+        let navigation = UINavigationController(rootViewController: view)
+        view.tableView(view.tableView , didSelectRowAt: IndexPath(row: 0, section: 0))
+
+        let expectation = expectation(description: "TextMatching")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            guard let controller = navigation.topViewController else {
+                fatalError("load error")
+            }
+            
+            XCTAssert(controller.isKind(of: DetailViewController.self))
+            expectation.fulfill()
+        })
+        wait(for: [expectation], timeout: 2.0)
     }
 }

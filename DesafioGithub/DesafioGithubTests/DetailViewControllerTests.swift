@@ -28,12 +28,19 @@ class RepoMock: CallerProtocol {
 final class DetailViewControllerTests: XCTestCase {
     var view: DetailViewController?
     var mockDelegate: RepoMock?
+    var viewModel: ViewModelDetail?
     override func setUpWithError() throws {
-        
-        view = DetailViewController()
-        mockDelegate = RepoMock(delegate: view)
-        view?.repoCallDelegate = mockDelegate
+        viewModel = ViewModelDetail()
+        guard let viewModel = viewModel else {
+            fatalError("error load")
+        }
+        let model = Model(delegate: viewModel)
+        viewModel.model = model
+        mockDelegate = RepoMock(delegate: model)
+        model.repoCallDelegate = mockDelegate
         let userMock = UserDetailViewModel(userName: "testeNome", realName: "testeNomeReal", imageURL: "", gitURL: "testeGit", blogURL: "testeBlog", twitterUsername: "testeTwitter", followers: 100, following: 200, repositoresURL: "")
+        view = viewModel.setupController(detailModel: userMock) as? DetailViewController
+        
         view?.setupController(model: userMock)
         view?.view.layoutIfNeeded()
         let window = UIWindow(frame: UIScreen.main.bounds)
@@ -53,8 +60,8 @@ final class DetailViewControllerTests: XCTestCase {
         }
         XCTAssertEqual(view.title, "testeNome")
         view.viewDidLoad()
-        view.repoCallDelegate = mockDelegate
         view.viewWillAppear(false)
+        viewModel?.model?.getRepository(userURL: "www.uol.com.br")
         XCTAssertEqual(view.view.backgroundColor, .blue)
         XCTAssertEqual(view.tableView.visibleCells.count, 5)
     }
