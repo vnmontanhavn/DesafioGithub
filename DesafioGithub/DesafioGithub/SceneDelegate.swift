@@ -15,7 +15,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let navigation = UINavigationController(rootViewController: ViewController())
+        let viewModel = ViewModel()
+        guard let controller = viewModel.setupController() else {
+            fatalError("ViewModel Error")
+        }
+        let navigation = UINavigationController(rootViewController: controller)
         window?.rootViewController = navigation
         window?.makeKeyAndVisible()
         guard let _ = (scene as? UIWindowScene) else { return }

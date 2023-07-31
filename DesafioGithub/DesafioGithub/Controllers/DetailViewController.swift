@@ -85,11 +85,7 @@ class DetailViewController: UIViewController {
     
 }
 
-extension DetailViewController: UITableViewDelegate {
-    
-}
-
-extension DetailViewController: UITableViewDataSource {
+extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -104,6 +100,13 @@ extension DetailViewController: UITableViewDataSource {
         } else {
             return self.repos.count
         }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 1 {
+            return "Repositórios:"
+        }
+        return ""
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

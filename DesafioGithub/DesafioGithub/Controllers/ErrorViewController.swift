@@ -22,6 +22,7 @@ class ErrorViewController: UIViewController {
         self.view.addSubview(label)
         self.view.addSubview(icon)
         self.background.backgroundColor = .white
+        self.background.layer.cornerRadius = 8
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.close(_:)))
         self.view.addGestureRecognizer(tapGesture)
     }
