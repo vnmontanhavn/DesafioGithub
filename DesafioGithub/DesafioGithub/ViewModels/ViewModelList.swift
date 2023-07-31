@@ -12,10 +12,9 @@ protocol ListViewModelProtocol {
     func showDetails(url: String)
 }
 
-class ViewModel {
+class ViewModelList {
     var model: Model?
     var view: ViewController?
-    var delegate: ListViewModelProtocol?
     init() {
         model = Model(delegate: self)
     }
@@ -26,26 +25,26 @@ class ViewModel {
         model?.getList()
         return view
     }
-    
-    
 }
 
-extension ViewModel: ListViewModelProtocol {
+extension ViewModelList: ListViewModelProtocol {
     func showDetails(url: String) {
         self.model?.getDetail(userURL: url)
     }
 }
 
-extension ViewModel: ModelProtocol {
+extension ViewModelList: ModelProtocol {
     func openList(viewModel: [UserListItemViewModel]) {
         self.view?.updateUsers(users: viewModel)
     }
     
     func openDetail(viewModel: UserDetailViewModel) {
-        self.view?.stopIndicatorAnimation()
-        let detailView = DetailViewController()
-        detailView.setupController(model: viewModel)
+        let model = ViewModelDetail()
+        guard let detailView = model.setupController(detailModel: viewModel) else {
+            return
+        }
         DispatchQueue.main.async {
+            self.view?.stopIndicatorAnimation()
             self.view?.navigationController?.pushViewController(detailView, animated: true)
         }
     }
