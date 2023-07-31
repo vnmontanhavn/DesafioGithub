@@ -39,11 +39,11 @@ extension ViewModelList: ModelProtocol {
     }
     
     func openDetail(viewModel: UserDetailViewModel) {
-        let model = ViewModelDetail()
-        guard let detailView = model.setupController(detailModel: viewModel) else {
-            return
-        }
         DispatchQueue.main.async {
+            let model = ViewModelDetail()
+            guard let detailView = model.setupController(detailModel: viewModel) else {
+                return
+            }
             self.view?.stopIndicatorAnimation()
             self.view?.navigationController?.pushViewController(detailView, animated: true)
         }
