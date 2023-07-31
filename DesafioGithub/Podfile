@@ -4,7 +4,6 @@ target 'DesafioGithub' do
 end
 
 target 'DesafioGithubTests' do
-  pod 'Alamofire'
   pod 'SDWebImage', :modular_headers => true
 end
 

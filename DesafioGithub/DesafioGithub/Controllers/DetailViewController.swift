@@ -15,12 +15,10 @@ class DetailViewController: UIViewController {
     private var model: UserDetailViewModel? = nil
     private var indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
     var repos: [RepositoryModel] = []
-    var repoCallDelegate: CallerProtocol?
     ///Métodos
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        repoCallDelegate = RepositoryCaller(delegate: self)
         self.view.backgroundColor = .blue
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -29,10 +27,7 @@ class DetailViewController: UIViewController {
         indicator.hidesWhenStopped = true
         self.setupConstraints()
         self.setupTableview()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        callRepo()
+        startIndicatorAnimation()
     }
     
     private func setupTableview() {
@@ -60,14 +55,6 @@ class DetailViewController: UIViewController {
         
     }
     
-    func callRepo() {
-        guard let model = self.model else {
-            return
-        }
-        startIndicatorAnimation()
-        
-        repoCallDelegate?.call(userURL: model.repositoresURL)
-    }
     func showError(message: String) {
         let errorView = ErrorViewController()
         errorView.setup(errorMessage: message)
@@ -83,13 +70,16 @@ class DetailViewController: UIViewController {
         self.indicator.stopAnimating()
     }
     
+    func updateRepo(repos: [RepositoryModel]) {
+        self.repos = repos
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.stopIndicatorAnimation()
+        }
+    }
 }
 
-extension DetailViewController: UITableViewDelegate {
-    
-}
-
-extension DetailViewController: UITableViewDataSource {
+extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -104,6 +94,13 @@ extension DetailViewController: UITableViewDataSource {
         } else {
             return self.repos.count
         }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 1 {
+            return "Repositórios:"
+        }
+        return ""
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -158,20 +155,4 @@ extension DetailViewController: LinkProtocol {
     func openLink(url: URL) {
         UIApplication.shared.open(url)
     }
-}
-
-extension DetailViewController: CallResponseDelegate {
-    func success<T>(response: T) {
-        if let response = response as? [RepositoryModel] {
-            self.repos = response
-            self.tableView.reloadData()
-            self.stopIndicatorAnimation()
-        }
-    }
-    
-    func fail(errorMessage: String) {
-        self.showError(message: errorMessage)
-    }
-    
-    
 }

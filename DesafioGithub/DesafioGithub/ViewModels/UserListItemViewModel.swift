@@ -11,4 +11,5 @@ struct UserListItemViewModel {
     var name: String
     var imageURL: String
     var gitURL: String
+    var apiURL: String
 }

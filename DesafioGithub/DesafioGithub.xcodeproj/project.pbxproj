@@ -37,6 +37,9 @@
 		302D7ABC2A10132700C726F4 /* DetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7ABB2A10132700C726F4 /* DetailViewControllerTests.swift */; };
 		302D7ABE2A10191F00C726F4 /* DetailInfoCelltests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7ABD2A10191F00C726F4 /* DetailInfoCelltests.swift */; };
 		302D7AC02A12DDB600C726F4 /* CallerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D7ABF2A12DDB600C726F4 /* CallerProtocols.swift */; };
+		30B9BD3C2A76A78F00D286FF /* ViewModelList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9BD3B2A76A78F00D286FF /* ViewModelList.swift */; };
+		30B9BD3E2A76A92600D286FF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9BD3D2A76A92600D286FF /* Model.swift */; };
+		30B9BD402A77356400D286FF /* ViewModelDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9BD3F2A77356400D286FF /* ViewModelDetail.swift */; };
 		9372D8E9E2FEF6ABEBA02A57 /* libPods-DesafioGithub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA85D7CD5FE9FDEAB3B3598 /* libPods-DesafioGithub.a */; };
 		B50E82077B55C2F7BE503BC5 /* libPods-DesafioGithubTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9A35F5AD23D1A04568AF76D /* libPods-DesafioGithubTests.a */; };
 /* End PBXBuildFile section */
@@ -95,6 +98,9 @@
 		302D7ABB2A10132700C726F4 /* DetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerTests.swift; sourceTree = "<group>"; };
 		302D7ABD2A10191F00C726F4 /* DetailInfoCelltests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoCelltests.swift; sourceTree = "<group>"; };
 		302D7ABF2A12DDB600C726F4 /* CallerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallerProtocols.swift; sourceTree = "<group>"; };
+		30B9BD3B2A76A78F00D286FF /* ViewModelList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelList.swift; sourceTree = "<group>"; };
+		30B9BD3D2A76A92600D286FF /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		30B9BD3F2A77356400D286FF /* ViewModelDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelDetail.swift; sourceTree = "<group>"; };
 		4FA85D7CD5FE9FDEAB3B3598 /* libPods-DesafioGithub.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DesafioGithub.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		579D8555F3373B8135C9FF59 /* Pods-DesafioGithub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioGithub.debug.xcconfig"; path = "Target Support Files/Pods-DesafioGithub/Pods-DesafioGithub.debug.xcconfig"; sourceTree = "<group>"; };
 		8D723A9DB2F5AB0B91942B46 /* Pods-DesafioGithubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioGithubTests.release.xcconfig"; path = "Target Support Files/Pods-DesafioGithubTests/Pods-DesafioGithubTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -204,6 +210,7 @@
 				302D7A932A0D694900C726F4 /* UserModel.swift */,
 				302D7AA92A0EF81500C726F4 /* DetailModel.swift */,
 				302D7AAB2A0EF82900C726F4 /* RepositoryModel.swift */,
+				30B9BD3D2A76A92600D286FF /* Model.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -232,8 +239,10 @@
 		302D7A982A0DEB2700C726F4 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				30B9BD3B2A76A78F00D286FF /* ViewModelList.swift */,
 				302D7A992A0DEB7100C726F4 /* UserListItemViewModel.swift */,
 				302D7AA42A0EC50A00C726F4 /* UserDetailViewModel.swift */,
+				30B9BD3F2A77356400D286FF /* ViewModelDetail.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -476,6 +485,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30B9BD3E2A76A92600D286FF /* Model.swift in Sources */,
 				302D7A9E2A0DEC3300C726F4 /* UserListCell.swift in Sources */,
 				302D7AAA2A0EF81500C726F4 /* DetailModel.swift in Sources */,
 				302D7A612A0C21AA00C726F4 /* ViewController.swift in Sources */,
@@ -486,9 +496,11 @@
 				302D7AA52A0EC50A00C726F4 /* UserDetailViewModel.swift in Sources */,
 				302D7A5F2A0C21AA00C726F4 /* SceneDelegate.swift in Sources */,
 				302D7AB62A0F3F8800C726F4 /* UserDetailCaller.swift in Sources */,
+				30B9BD3C2A76A78F00D286FF /* ViewModelList.swift in Sources */,
 				302D7AB02A0EF87300C726F4 /* DetailRepositoryCell.swift in Sources */,
 				302D7A942A0D694900C726F4 /* UserModel.swift in Sources */,
 				302D7A8E2A0C261600C726F4 /* ErrorViewController.swift in Sources */,
+				30B9BD402A77356400D286FF /* ViewModelDetail.swift in Sources */,
 				302D7AAE2A0EF85300C726F4 /* DetailInfoCell.swift in Sources */,
 				302D7A9A2A0DEB7100C726F4 /* UserListItemViewModel.swift in Sources */,
 				302D7AA22A0EC21F00C726F4 /* DetailViewController.swift in Sources */,
